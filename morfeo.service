@@ -6,3 +6,6 @@ WorkingDirectory=/home/ema/dev/morfeo
 EnvironmentFile=/home/ema/dev/morfeo/secrets
 ExecStart=/home/ema/dev/morfeo/morfeo
 Restart=always
+
+[Install]
+WantedBy=multi-user.target
