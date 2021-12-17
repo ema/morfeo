@@ -1,0 +1,3 @@
+- Add MORFEO_SECRET and MORFEO_ADD to a file called 'secrets'.
+- cp morfeo.service ~/.config/systemd/user/
+- systemctl --user enable morfeo.service
