@@ -25,7 +25,7 @@ func main() {
             <head><title>Morfeo</title></head>
             <body>
                 <h1>Morfeo</h1>
-                <form method="post" action="/suspend">
+                <form method="post" action="/poweroff">
                     <input type="text" name="secret" />
                     <input type="submit" />
                 </form>
@@ -34,7 +34,7 @@ func main() {
         `)
 	})
 
-	http.HandleFunc("/suspend", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/poweroff", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != "POST" {
 			w.WriteHeader(http.StatusInternalServerError)
 			fmt.Fprintln(w, "Only POST requests are allowed")
@@ -53,13 +53,13 @@ func main() {
 		} else {
 			fmt.Fprintf(w, "OK boss, going to sleep")
 
-			// Suspend the system
-			cmd := exec.Command("systemctl", "suspend")
+			// Power-off the system
+			cmd := exec.Command("systemctl", "poweroff")
 			_, err := cmd.Output()
 			if err != nil {
 				log.Fatal(err)
 			} else {
-				log.Printf("suspending")
+				log.Printf("powering off")
 			}
 		}
 	})
