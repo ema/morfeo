@@ -8,4 +8,4 @@ ExecStart=/home/ema/dev/morfeo/morfeo
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
